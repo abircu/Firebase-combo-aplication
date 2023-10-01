@@ -10,11 +10,11 @@ const Header = () => {
       </li>
       <li>
         {" "}
-        <NavLink to="/service">Services</NavLink>{" "}
+        <NavLink to="/service">Login</NavLink>{" "}
       </li>
       <li>
         {" "}
-        <NavLink to="/login">Login</NavLink>{" "}
+        <NavLink to="/login">Register</NavLink>{" "}
       </li>
     </>
   );
@@ -46,13 +46,9 @@ const Header = () => {
               {link}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{link}</ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-center hidden lg:flex ">
+          <ul className="menu menu-horizontal px-1 gap-6">{link}</ul>
         </div>
       </div>
     </div>
