@@ -1,7 +1,19 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
+  // for sign out
+  const { user, signOutUser } = useContext(AuthContext);
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("user logout succesfully");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const link = (
     <>
       <li>
@@ -45,12 +57,28 @@ const Header = () => {
               {link}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <a className="btn btn-ghost normal-case text-xl  text-sky-600">
             Firebase Authentication Aplication
           </a>
         </div>
-        <div className="navbar-center hidden lg:flex ">
-          <ul className="menu menu-horizontal px-1 gap-6">{link}</ul>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal text-sky-600 px-1 gap-6">
+            {link}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          {user ? (
+            <>
+              <span>{user.email}</span>
+              <a onClick={handleSignOut} className="btn btn-sm text-sky-600">
+                Sign Out
+              </a>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm text-sky-600">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
