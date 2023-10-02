@@ -10,11 +10,10 @@ const Header = () => {
       </li>
       <li>
         {" "}
-        <NavLink to="/service">Login</NavLink>{" "}
+        <NavLink to="/login">Login</NavLink>{" "}
       </li>
       <li>
-        {" "}
-        <NavLink to="/login">Register</NavLink>{" "}
+        <NavLink to="/register">Register</NavLink>
       </li>
     </>
   );

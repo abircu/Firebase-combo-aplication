@@ -1,23 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
-  const handleSubmitForm = (e) => {
-    console.log(e);
+const Register = () => {
+  const handleSubmitRegisterForm = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    console.log(name, email, password);
   };
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col">
         <div className="text-center  ">
-          <h1 className="text-3xl font-bold">Login now!</h1>
+          <h1 className="text-3xl font-bold">Register now!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
           <div className="card-body">
-            <form onSubmit={handleSubmitForm}>
+            <form onSubmit={handleSubmitRegisterForm}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -52,9 +64,10 @@ const Login = () => {
               </div>
             </form>
             <p>
-              New here Please <br />
-              <Link to="/register">
-                <button className="btn btn-link">Resgister</button>
+              Already have an account
+              <br />
+              <Link to="/login">
+                <button className="btn btn-link">Login</button>
               </Link>
             </p>
           </div>
@@ -64,4 +77,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
